@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سایت مشابه یوتیوب</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #00c6ff, #0072ff); /* گرادیانت سرد */
+            color: #fff;
+        }
+        .header {
+            background-color: rgba(0, 0, 0, 0.8); /* پس‌زمینه نیمه شفاف */
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        .header .nav {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+        .nav button {
+            background-color: #ff5722; /* رنگ نارنجی روشن */
+            border: none;
+            color: #fff;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .nav button:hover {
+            background-color: #e64a19; /* رنگ نارنجی تیره‌تر */
+        }
+        .search-bar {
+            width: 80%;
+            padding: 10px;
+            margin: 20px auto;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.6); /* پس‌زمینه تیره‌تر */
+            border-radius: 5px;
+        }
+        .search-bar input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            background-color: #333;
+            color: #fff;
+        }
+        .search-bar button {
+            padding: 10px;
+            border: none;
+            background-color: #ff5722;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #e64a19;
+        }
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+        .video-item {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .video-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+        .video-item img {
+            width: 100%;
+            display: block;
+        }
+        .video-item h3 {
+            margin: 10px;
+            font-size: 16px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <button onclick="window.location.href='login.html'">ورود</button>
+            <button onclick="window.location.href='register.html'">ثبت نام</button>
+        </div>
+        <h1>ایران  یوتیوب</h1>
+    </div>
+    <div class="search-bar">
+        <input type="text" placeholder="جستجو...">
+        <button>جستجو</button>
+    </div>
+    <div class="video-grid">
+        <div class="video-item">
+            <img src="https://placekitten.com/250/150?image=1" alt="Thumbnail">
+            <h3>عنوان ویدیو 1</h3>
+        </div>
+        <div class="video-item">
+            <img src="https://placekitten.com/250/150?image=2" alt="Thumbnail">
+            <h3>عنوان ویدیو 2</h3>
+        </div>
+        <div class="video-item">
+            <img src="https://placekitten.com/250/150?image=3" alt="Thumbnail">
+            <h3>عنوان ویدیو 3</h3>
+        </div>
+        <div class="video-item">
+            <img src="https://placekitten.com/250/150?image=4" alt="Thumbnail">
+            <h3>عنوان ویدیو 4</h3>
+        </div>
+        <div class="video-item">
+            <img src="https://placekitten.com/250/150?image=5" alt="Thumbnail">
+            <h3>عنوان ویدیو 5</h3>
+        </div>
+        <div class="video-item">
+            <img src="https://placekitten.com/250/150?image=6" alt="Thumbnail">
+            <h3>عنوان ویدیو 6</h3>
+        </div>
+        <div class="video-item">
+            <img src="https://placekitten.com/250/150?image=7" alt="Thumbnail">
+            <h3>عنوان ویدیو 7</h3>
+        </div>
+        <div class="video-item">
+            <img src="https://placekitten.com/250/150?image=8" alt="Thumbnail">
+            <h3>عنوان ویدیو 8</h3>
+        </div>
+        <div class="video-item">
+            <img src="https://placekitten.com/250/150?image=9" alt="Thumbnail">
+            <h3>عنوان ویدیو 9</h3>
+        </div>
+        <div class="video-item">
+            <img src="https://placekitten.com/250/150?image=10" alt="Thumbnail">
+            <h3>عنوان ویدیو 10</h3>
+        </div>
+    </div>
+</body>
+</html>

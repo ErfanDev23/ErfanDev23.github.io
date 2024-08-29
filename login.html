@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود به سیستم</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b); /* گرادیانت رنگی جذاب */
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: rgba(0, 0, 0, 0.7); /* پس‌زمینه نیمه شفاف */
+            padding: 30px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #ffeb3b; /* رنگ زرد برای عنوان */
+        }
+        .login-container input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            font-size: 16px;
+        }
+        .login-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #ff5722; /* رنگ نارنجی روشن */
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-container button:hover {
+            background-color: #e64a19; /* رنگ نارنجی تیره‌تر */
+        }
+        .error-message {
+            color: #ffeb3b; /* رنگ زرد برای پیام خطا */
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>ورود به سیستم</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="نام کاربری" required>
+            <input type="password" id="password" placeholder="گذرواژه" required>
+            <button type="submit">ورود</button>
+        </form>
+        <div class="error-message" id="errorMessage">
+            نام کاربری یا گذرواژه اشتباه است.
+        </div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // جلوگیری از ارسال فرم به صورت پیش‌فرض
+
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            if (username === 'erfan' && password === 'berf1388') {
+                // انتقال به صفحه جدید در صورت موفقیت
+                window.location.href = 'das.html';
+            } else {
+                // نمایش پیغام خطا در صورت اشتباه بودن اطلاعات
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
