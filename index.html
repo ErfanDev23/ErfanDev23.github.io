@@ -79,6 +79,28 @@
             transform: scale(1.05);
         }
 
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .nav-buttons a {
+            background: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.7rem 1rem;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .nav-buttons a:hover {
+            background: #16a085;
+            transform: scale(1.05);
+        }
+
         .footer {
             margin-top: 2rem;
             font-size: 0.9rem;
@@ -91,17 +113,6 @@
             font-size: 0.9rem;
             color: #f5f5f5;
             margin-top: 2rem;
-        }
-
-        .nav-buttons {
-            margin-bottom: 1rem;
-        }
-
-        .nav-buttons a {
-            color: #1abc9c;
-            margin: 0 1rem;
-            text-decoration: none;
-            font-weight: bold;
         }
 
         /* Animation */
@@ -117,11 +128,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- اضافه کردن دکمه‌ها بالای باکس پرداخت -->
-        <div class="nav-buttons">
-            <a href="about.html">درباره ما</a> | 
-            <a href="trust.html">چرا باید به ما اعتماد کرد</a>
-        </div>
         <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Tether-logo.svg" alt="Tether Logo" class="icon">
         <h1>درگاه پرداخت تتر</h1>
         <p class="amount">مقدار پرداخت:</p>
@@ -129,9 +135,14 @@
         <input type="text" placeholder="آدرس کیف پول را وارد کنید..." required>
         <input type="text" placeholder="نام و نام خانوادگی را وارد کنید..." required>
         <input type="email" placeholder="ایمیل خود را وارد کنید..." required>
+        
+        <div class="nav-buttons">
+            <a href="about.html">درباره ما</a>
+            <a href="trust.html">چرا باید به ما اعتماد کرد</a>
+        </div>
+        
         <input type="submit" value="پرداخت">
-     
-        <!-- قوانین و شرایط پایین باکس پرداخت -->
+        
         <div class="rules">
             <h3>قوانین و شرایط:</h3>
             <ol>
