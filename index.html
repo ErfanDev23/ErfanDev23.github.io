@@ -3,152 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> erfan site </title>
+    <title>درگاه پرداخت تتر</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Tahoma', sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(to right, #00c6ff, #0072ff); /* گرادیانت سرد */
-            color: #fff;
-        }
-        .header {
-            background-color: rgba(0, 0, 0, 0.8); /* پس‌زمینه نیمه شفاف */
-            color: #fff;
-            padding: 15px;
-            text-align: center;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-        }
-        .header .nav {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-        }
-        .nav button {
-            background-color: #ff5722; /* رنگ نارنجی روشن */
-            border: none;
-            color: #fff;
-            padding: 10px 15px;
-            margin: 0 5px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .nav button:hover {
-            background-color: #e64a19; /* رنگ نارنجی تیره‌تر */
-        }
-        .search-bar {
-            width: 80%;
-            padding: 10px;
-            margin: 20px auto;
+            background: linear-gradient(135deg, #0d1b2a, #1b2631);
+            color: #f5f5f5;
             display: flex;
             justify-content: center;
-            background-color: rgba(0, 0, 0, 0.6); /* پس‌زمینه تیره‌تر */
-            border-radius: 5px;
-        }
-        .search-bar input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            border: none;
-            border-radius: 5px 0 0 5px;
-            background-color: #333;
-            color: #fff;
-        }
-        .search-bar button {
-            padding: 10px;
-            border: none;
-            background-color: #ff5722;
-            color: #fff;
-            border-radius: 0 5px 5px 0;
-            cursor: pointer;
-        }
-        .search-bar button:hover {
-            background-color: #e64a19;
-        }
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            padding: 20px;
-        }
-        .video-item {
-            background-color: rgba(0, 0, 0, 0.7);
-            border-radius: 10px;
+            align-items: center;
+            height: 100vh;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s, box-shadow 0.3s;
         }
-        .video-item:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-        .video-item img {
+
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            max-width: 500px;
             width: 100%;
-            display: block;
-        }
-        .video-item h3 {
-            margin: 10px;
-            font-size: 16px;
-            color: #fff;
-        }
-        .footer {
-            background-color: rgba(0, 0, 0, 0.8);
-            color: #fff;
-            padding: 15px;
             text-align: center;
-            position: absolute;
-            bottom: 0;
+            transition: transform 0.3s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #1abc9c;
+            margin-bottom: 1rem;
+            animation: bounce 1.5s infinite;
+        }
+
+        .amount {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+
+        input[type="text"], input[type="email"] {
             width: 100%;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+            padding: 0.7rem;
+            margin: 1rem 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            background: #34495e;
+            color: #f5f5f5;
+            transition: background 0.3s;
         }
-        .footer a {
-            color: #fff;
-            margin: 0 10px;
+
+        input[type="text"]:focus, input[type="email"]:focus {
+            background: #2c3e50;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            background: #1abc9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 0.7rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background: #16a085;
+            transform: scale(1.05);
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #ccc;
+            text-align: right;
+        }
+
+        .rules {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #f5f5f5;
+            margin-top: 2rem;
+        }
+
+        .nav-buttons {
+            margin-bottom: 1rem;
+        }
+
+        .nav-buttons a {
+            color: #1abc9c;
+            margin: 0 1rem;
             text-decoration: none;
+            font-weight: bold;
         }
-        .footer a:hover {
-            color: #ff5722;
-        }
-        .footer img {
-            width: 24px;
-            vertical-align: middle;
-            margin: 0 5px;
+
+        /* Animation */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="nav">
-            <button onclick="window.location.href='login.html'">ورود</button>
-            <button onclick="window.location.href='register.html'">ثبت نام</button>
+    <div class="container">
+        <!-- اضافه کردن دکمه‌ها بالای باکس پرداخت -->
+        <div class="nav-buttons">
+            <a href="about.html">درباره ما</a> | 
+            <a href="trust.html">چرا باید به ما اعتماد کرد</a>
         </div>
-        <h1> erfan </h1>
-    </div>
-    <div class="search-bar">
-        <input type="text" placeholder="جستجو...">
-        <button>جستجو</button>
-    </div>
-    <div class="video-grid">
-        <div class="video-item">
-            <img src="https://placekitten.com/250/150?image=1" alt="Thumbnail">
-            <h3>عنوان ویدیو 1</h3>
-        </div>
-        <div class="video-item">
-            <img src="https://placekitten.com/250/150?image=2" alt="Thumbnail">
-            <h3>عنوان ویدیو 2</h3>
-        </div>
-       
-      
-    <div class="footer">
-        <a href="https://instagram.com" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
-        </a>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Tether-logo.svg" alt="Tether Logo" class="icon">
+        <h1>درگاه پرداخت تتر</h1>
+        <p class="amount">مقدار پرداخت:</p>
+        <input type="text" placeholder="مقدار تتر را وارد کنید..." required>
+        <input type="text" placeholder="آدرس کیف پول را وارد کنید..." required>
+        <input type="text" placeholder="نام و نام خانوادگی را وارد کنید..." required>
+        <input type="email" placeholder="ایمیل خود را وارد کنید..." required>
+        <input type="submit" value="پرداخت">
         
-        </a>
+        <!-- قوانین و شرایط پایین باکس پرداخت -->
+        <div class="rules">
+            <h3>قوانین و شرایط:</h3>
+            <ol>
+                <li>این درگاه تنها برای پرداخت‌های قانونی و معتبر استفاده می‌شود.</li>
+                <li>مسئولیت استفاده نادرست از این درگاه بر عهده کاربر است.</li>
+                <li>پرداخت‌ها غیرقابل استرداد هستند.</li>
+                <li>در صورت بروز مشکل در پرداخت، حتماً با پشتیبانی تماس بگیرید.</li>
+                <li>کاربران موظفند اطلاعات صحیح و معتبر را وارد کنند.</li>
+                <li>هرگونه سواستفاده از این درگاه پیگرد قانونی دارد.</li>
+                <li>ایمیل ثبت شده برای ارسال فاکتور و اطلاعات ضروری استفاده خواهد شد.</li>
+                <li>این درگاه حق تغییر قوانین و شرایط را در هر زمان دارد.</li>
+                <li>کاربران باید با شرایط و قوانین این درگاه آشنا شوند.</li>
+                <li>درگاه مسئولیتی در قبال عدم موفقیت در پرداخت‌ها ندارد.</li>
+            </ol>
+        </div>
+
+        <div class="footer"> ❤️توسعه دهند عرفان حدادی ❤️</div>
     </div>
 </body>
 </html>
