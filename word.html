@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login to Word</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ورود به ورد</h1>
+        <form action="word_dashboard.html" method="POST" onsubmit="return checkWordLogin()">
+            <label for="word_username">نام کاربری:</label>
+            <input type="text" id="word_username" name="word_username" required>
+
+            <label for="word_password">رمز عبور:</label>
+            <input type="password" id="word_password" name="word_password" required>
+
+            <button type="submit" class="btn">ورود</button>
+        </form>
+    </div>
+
+    <script>
+        function checkWordLogin() {
+            var username = document.getElementById("word_username").value;
+            var password = document.getElementById("word_password").value;
+
+            if (username === "1020" && password === "1020") {
+                return true;  // Allow form submission
+            } else {
+                alert("نام کاربری یا رمز عبور اشتباه است");
+                return false;  // Prevent form submission
+            }
+        }
+    </script>
+</body>
+</html>

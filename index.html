@@ -3,157 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>درگاه پرداخت تتر</title>
-    <style>
-        body {
-            font-family: 'Tahoma', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #0d1b2a, #1b2631);
-            color: #f5f5f5;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
-            max-width: 500px;
-            width: 100%;
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .container:hover {
-            transform: scale(1.02);
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #1abc9c;
-            margin-bottom: 1rem;
-            animation: bounce 1.5s infinite;
-        }
-
-        .amount {
-            font-size: 1.5rem;
-            margin: 1rem 0;
-        }
-
-        input[type="text"], input[type="email"] {
-            width: 100%;
-            padding: 0.7rem;
-            margin: 1rem 0;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            background: #34495e;
-            color: #f5f5f5;
-            transition: background 0.3s;
-        }
-
-        input[type="text"]:focus, input[type="email"]:focus {
-            background: #2c3e50;
-            outline: none;
-        }
-
-        input[type="submit"] {
-            background: #1abc9c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 0.7rem;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        input[type="submit"]:hover {
-            background: #16a085;
-            transform: scale(1.05);
-        }
-
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            margin: 1rem 0;
-        }
-
-        .nav-buttons a {
-            background: #1abc9c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 0.7rem 1rem;
-            margin: 0 0.5rem;
-            text-decoration: none;
-            transition: background 0.3s, transform 0.3s;
-        }
-
-        .nav-buttons a:hover {
-            background: #16a085;
-            transform: scale(1.05);
-        }
-
-        .footer {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #ccc;
-            text-align: right;
-        }
-
-        .rules {
-            text-align: right;
-            font-size: 0.9rem;
-            color: #f5f5f5;
-            margin-top: 2rem;
-        }
-
-        /* Animation */
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>سایت من</title>
 </head>
 <body>
+    <div class="header">
+        <div class="logo">E</div>
+    </div>
+    
     <div class="container">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Tether-logo.svg" alt="Tether Logo" class="icon">
-        <h1>درگاه پرداخت تتر</h1>
-        <p class="amount">مقدار پرداخت:</p>
-        <input type="text" placeholder="مقدار تتر را وارد کنید..." required>
-        <input type="text" placeholder="آدرس کیف پول را وارد کنید..." required>
-        <input type="text" placeholder="نام و نام خانوادگی را وارد کنید..." required>
-        <input type="email" placeholder="ایمیل خود را وارد کنید..." required>
-        
-        <div class="nav-buttons">
-            <a href="about.html">درباره ما</a>
-            <a href="trust.html">چرا باید به ما اعتماد کرد</a>
+        <h1>خوش آمدید به سایت من</h1>
+        <h2>برنامه‌های من</h2>
+        <div class="button-container">
+            <a href="login.html" class="btn"><i class="fas fa-sign-in-alt"></i> ورود</a>
+            <a href="projects.html" class="btn"><i class="fas fa-folder-open"></i> پروژه‌های من</a>
+            <a href="sites.html" class="btn"><i class="fas fa-globe"></i> سایت‌های من</a>
+            <a href="skills.html" class="btn"><i class="fas fa-cogs"></i> مهارت‌های من</a>
         </div>
-        
-        <input type="submit" value="پرداخت">
-        
-        <div class="rules">
-            <h3>قوانین و شرایط:</h3>
-            <ol>
-                <li>هرگونه سواستفاده از این درگاه پیگرد قانونی دارد.</li>
-                <li>ایمیل ثبت شده برای ارسال فاکتور و اطلاعات ضروری استفاده خواهد شد.</li>
-                <li>کاربران باید با شرایط و قوانین این درگاه آشنا شوند.</li>
-                <li>درگاه مسئولیتی در قبال عدم موفقیت در پرداخت‌ها ندارد.</li>
-            </ol>
-        </div>
-
-        <div class="footer"> ❤️توسعه دهند عرفان حدادی ❤️</div>
     </div>
 </body>
 </html>
