@@ -4,27 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>سایت من</title>
+    <title>ماشین حساب</title>
 </head>
 <body>
-    <div class="header">
-        <!-- ساعت در بالا سمت چپ -->
-        <div id="clock" class="clock"></div>
-        <!-- لوگو در بالا سمت راست -->
-        <div class="logo">E</div>
-    </div>
-
-    <div class="container">
-        <h1>خوش آمدید به سایت من</h1>
-        <h2>برنامه‌های من</h2>
-
+    <div id="calculator">
+        <input type="text" id="input" placeholder="0" readonly>
+        <div id="result">نتیجه: <span id="resultValue">0</span></div>
         <div class="button-container">
-            <a href="login.html" class="btn"><i class="fas fa-sign-in-alt"></i> ورود</a>
-            <a href="projects.html" class="btn"><i class="fas fa-folder-open"></i> پروژه‌های من</a>
-            <a href="sites.html" class="btn"><i class="fas fa-globe"></i> سایت‌های من</a>
+            <button onclick="addToInput('1')">1</button>
+            <button onclick="addToInput('2')">2</button>
+            <button onclick="addToInput('3')">3</button>
+            <button onclick="addToInput('+')">+</button>
+        </div>
+        <div class="button-container">
+            <button onclick="addToInput('4')">4</button>
+            <button onclick="addToInput('5')">5</button>
+            <button onclick="addToInput('6')">6</button>
+            <button onclick="addToInput('-')">-</button>
+        </div>
+        <div class="button-container">
+            <button onclick="addToInput('7')">7</button>
+            <button onclick="addToInput('8')">8</button>
+            <button onclick="addToInput('9')">9</button>
+            <button onclick="addToInput('*')">*</button>
+        </div>
+        <div class="button-container">
+            <button onclick="clearInput()">C</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="addToInput('0')">0</button>
+            <button onclick="addToInput('/')">/</button>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
