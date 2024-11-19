@@ -1,20 +1,36 @@
-const fileInput = document.getElementById('fileInput');
-const downloadLink = document.getElementById('downloadLink');
+let display = document.getElementById("display");
+let currentInput = "";
 
-fileInput.addEventListener('change', function() {
-    const file = fileInput.files[0];
-    if (file) {
-        const fileURL = URL.createObjectURL(file);
-        downloadLink.href = fileURL;
-        downloadLink.download = file.name;
-        downloadLink.style.display = 'inline-block';
-        downloadLink.textContent = `Download ${file.name}`;
+function appendToDisplay(value) {
+    if (currentInput === "0") currentInput = ""; // حذف پیش‌فرض 0
+    currentInput += value;
+    display.textContent = currentInput;
+}
 
-        // Animation for download link
-        downloadLink.style.opacity = '0';
-        setTimeout(() => {
-            downloadLink.style.opacity = '1';
-            downloadLink.style.transform = 'translateY(0)';
-        }, 100);
+function clearDisplay() {
+    currentInput = "";
+    display.textContent = "0";
+}
+
+function toggleSign() {
+    if (currentInput.startsWith("-")) {
+        currentInput = currentInput.slice(1);
+    } else if (currentInput !== "0") {
+        currentInput = "-" + currentInput;
     }
-});
+    display.textContent = currentInput;
+}
+
+function calculate() {
+    try {
+        let result = eval(currentInput.replace("÷", "/").replace("×", "*"));
+        display.textContent = result;
+
+        // هدایت به سایت
+        if (result === 81) {
+            window.location.href = "http://www.parsquran.com/book/";
+        }
+    } catch (error) {
+        display.textContent = "خطا";
+    }
+}

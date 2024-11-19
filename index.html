@@ -1,27 +1,46 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>دانلود نمونه سوال فارسی</title>
+    <title>ماشین حساب آیفون</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- بوم برای انیمیشن -->
-    <canvas id="animationCanvas"></canvas>
+    <div class="calculator">
+        <div id="display" class="display">0</div>
+        <div class="buttons">
+            <!-- Row 1 -->
+            <button class="button operator" onclick="clearDisplay()">AC</button>
+            <button class="button operator" onclick="toggleSign()">±</button>
+            <button class="button operator" onclick="appendToDisplay('%')">%</button>
+            <button class="button operator" onclick="appendToDisplay('/')">÷</button>
 
-    <div class="login">
-        <a href="login.html" class="login-button">ورود</a>
-    </div>
-    <div class="container">
-        <h1>دانلود نمونه سوال فارسی</h1>
-        <p>این سایت از تمام درس‌ها پوشش می‌دهد</p>
-        <a id="downloadButton" class="download-button" href="your-file-link.zip" download>دانلود فایل</a>
-        <footer>
-            <p>ساخته شده توسط عرفان حدادی</p>
-        </footer>
-    </div>
+            <!-- Row 2 -->
+            <button class="button" onclick="appendToDisplay('7')">7</button>
+            <button class="button" onclick="appendToDisplay('8')">8</button>
+            <button class="button" onclick="appendToDisplay('9')">9</button>
+            <button class="button operator" onclick="appendToDisplay('*')">×</button>
 
-    <script src="animation.js"></script>
+            <!-- Row 3 -->
+            <button class="button" onclick="appendToDisplay('4')">4</button>
+            <button class="button" onclick="appendToDisplay('5')">5</button>
+            <button class="button" onclick="appendToDisplay('6')">6</button>
+            <button class="button operator" onclick="appendToDisplay('-')">−</button>
+
+            <!-- Row 4 -->
+            <button class="button" onclick="appendToDisplay('1')">1</button>
+            <button class="button" onclick="appendToDisplay('2')">2</button>
+            <button class="button" onclick="appendToDisplay('3')">3</button>
+            <button class="button operator" onclick="appendToDisplay('+')">+</button>
+
+            <!-- Row 5 -->
+            <button class="button zero" onclick="appendToDisplay('0')">0</button>
+            <button class="button" onclick="appendToDisplay('.')">.</button>
+            <button class="button operator" onclick="calculate()">=</button>
+        </div>
+    </div>
+    <footer class="footer">ساخته شده توسط عرفان حدادی</footer>
+    <script src="script.js"></script>
 </body>
 </html>
