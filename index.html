@@ -1,46 +1,17 @@
+
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> ماشین حساب   </title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Escape World</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="calculator">
-        <div id="display" class="display">0</div>
-        <div class="buttons">
-            <!-- Row 1 -->
-            <button class="button operator" onclick="clearDisplay()">AC</button>
-            <button class="button operator" onclick="toggleSign()">±</button>
-            <button class="button operator" onclick="appendToDisplay('%')">%</button>
-            <button class="button operator" onclick="appendToDisplay('/')">÷</button>
-
-            <!-- Row 2 -->
-            <button class="button" onclick="appendToDisplay('7')">7</button>
-            <button class="button" onclick="appendToDisplay('8')">8</button>
-            <button class="button" onclick="appendToDisplay('9')">9</button>
-            <button class="button operator" onclick="appendToDisplay('*')">×</button>
-
-            <!-- Row 3 -->
-            <button class="button" onclick="appendToDisplay('4')">4</button>
-            <button class="button" onclick="appendToDisplay('5')">5</button>
-            <button class="button" onclick="appendToDisplay('6')">6</button>
-            <button class="button operator" onclick="appendToDisplay('-')">−</button>
-
-            <!-- Row 4 -->
-            <button class="button" onclick="appendToDisplay('1')">1</button>
-            <button class="button" onclick="appendToDisplay('2')">2</button>
-            <button class="button" onclick="appendToDisplay('3')">3</button>
-            <button class="button operator" onclick="appendToDisplay('+')">+</button>
-
-            <!-- Row 5 -->
-            <button class="button zero" onclick="appendToDisplay('0')">0</button>
-            <button class="button" onclick="appendToDisplay('.')">.</button>
-            <button class="button operator" onclick="calculate()">=</button>
-        </div>
+    <div class="container">
+        <h1>Welcome to the Escape World</h1>
+        <button id="escapeButton">Escape to Another World</button>
     </div>
-    <footer class="footer">ساخته شده توسط عرفان حدادی</footer>
     <script src="script.js"></script>
 </body>
 </html>
