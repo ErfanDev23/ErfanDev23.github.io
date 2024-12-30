@@ -7,45 +7,14 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-        }
-
-        #language-selection {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        #language-selection button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 1.5em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        #language-selection button.english {
-            background-color: #80cbc4;
-            color: #1a1a1a;
-        }
-
-        #language-selection button.persian {
-            background-color: #004d40;
-            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #d4d4d4;
+            overflow-x: hidden;
         }
 
         header {
-            background-color: #004d40;
+            background: linear-gradient(90deg, #004d40, #00796b);
             color: #ffffff;
             padding: 20px;
             text-align: center;
@@ -54,25 +23,30 @@
         header h1 {
             margin: 0;
             font-size: 2.5em;
+            text-shadow: 2px 2px 5px #000;
         }
 
         nav {
             display: flex;
             justify-content: center;
             gap: 20px;
-            background-color: #00332e;
+            background-color: #003d33;
             padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
         nav a {
-            color: #e0e0e0;
+            color: #80cbc4;
             text-decoration: none;
             font-size: 1.2em;
-            transition: color 0.3s;
+            transition: color 0.3s, transform 0.3s;
         }
 
         nav a:hover {
-            color: #80cbc4;
+            color: #ffffff;
+            transform: scale(1.1);
         }
 
         .hero {
@@ -86,32 +60,39 @@
             text-align: center;
             color: #ffffff;
             text-shadow: 2px 2px 4px #000000;
+            position: relative;
         }
 
         .hero h2 {
             font-size: 3em;
+            animation: neonGlow 3s infinite alternate;
         }
 
-        .section {
-            padding: 20px;
-            text-align: center;
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 5px #00e676, 0 0 10px #00e676, 0 0 20px #00e676;
+            }
+            to {
+                text-shadow: 0 0 20px #00ff66, 0 0 30px #00ff66, 0 0 50px #00ff66;
+            }
         }
 
-        .menu {
-            background-color: #2e2e2e;
+        .menu, .about, .contact {
+            background-color: #1b1b1b;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             margin: 20px auto;
             max-width: 800px;
+            box-shadow: 0 4px 15px rgba(0, 255, 127, 0.2);
         }
 
-        .menu h3 {
+        .menu h3, .about h3, .contact h3 {
             color: #80cbc4;
         }
 
         footer {
-            background-color: #00332e;
-            color: #80cbc4;
+            background-color: #003d33;
+            color: #ffffff;
             text-align: center;
             padding: 10px;
             position: relative;
@@ -119,40 +100,64 @@
             width: 100%;
         }
 
-        .animated-button {
-            display: inline-block;
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 255, 127, 0.5);
+        }
+
+        .language-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .language-modal .content {
+            background: #1b1b1b;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #d4d4d4;
+            box-shadow: 0 8px 15px rgba(0, 255, 127, 0.3);
+        }
+
+        .language-modal button {
+            margin: 10px;
             padding: 10px 20px;
-            margin: 20px;
-            background-color: #80cbc4;
-            color: #1a1a1a;
-            font-size: 1.2em;
             border: none;
             border-radius: 5px;
+            background: #00e676;
+            color: #121212;
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .animated-button:hover {
+        .language-modal button:hover {
             transform: scale(1.1);
-            box-shadow: 0 8px 15px rgba(128, 203, 196, 0.5);
-        }
-
-        .animated-section {
-            opacity: 0;
-            transform: translateY(100px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .animated-section.visible {
-            opacity: 1;
-            transform: translateY(0);
+            box-shadow: 0 8px 15px rgba(0, 255, 127, 0.7);
         }
     </style>
 </head>
 <body>
-    <div id="language-selection">
-        <button class="english" onclick="setLanguage('en')">English</button>
-        <button class="persian" onclick="setLanguage('fa')">فارسی</button>
+    <div id="language-modal" class="language-modal">
+        <div class="content">
+            <p>Select your language / زبان خود را انتخاب کنید</p>
+            <button onclick="setLanguage('en')">English</button>
+            <button onclick="setLanguage('fa')">فارسی</button>
+        </div>
     </div>
 
     <header>
@@ -161,71 +166,47 @@
     </header>
     
     <nav>
-        <a href="#menu" data-en="Menu" data-fa="منو">Menu</a>
-        <a href="#about" data-en="About Us" data-fa="درباره ما">About Us</a>
-        <a href="#gallery" data-en="Gallery" data-fa="گالری">Gallery</a>
-        <a href="#contact" data-en="Contact" data-fa="تماس با ما">Contact</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About Us</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
     </nav>
 
     <div class="hero">
-        <h2 data-en="Welcome to Mor Caffe" data-fa="به Mor Caffe خوش آمدید">Welcome to Mor Caffe</h2>
-        <button class="animated-button" onclick="scrollToSection('menu')" data-en="Explore Menu" data-fa="مشاهده منو">Explore Menu</button>
+        <h2>Welcome to Mor Caffe</h2>
     </div>
 
-    <section id="menu" class="section animated-section">
-        <div class="menu">
-            <h3 data-en="Our Menu" data-fa="منوی ما">Our Menu</h3>
-            <p data-en="Coffee, Tea, Pastries, and more!" data-fa="قهوه، چای، شیرینی و موارد دیگر!">Coffee, Tea, Pastries, and more!</p>
-        </div>
+    <section id="menu" class="menu">
+        <h3>Our Menu</h3>
+        <p>Coffee, Tea, Pastries, and more!</p>
     </section>
 
-    <section id="about" class="section animated-section">
-        <h3 data-en="About Us" data-fa="درباره ما">About Us</h3>
-        <p data-en="Mor Caffe is a place where coffee meets art. Relax, enjoy, and sip the finest brews in town."
-           data-fa="Mor Caffe مکانی است که قهوه با هنر تلاقی می‌کند. استراحت کنید، لذت ببرید و از بهترین نوشیدنی‌ها لذت ببرید.">
-           Mor Caffe is a place where coffee meets art. Relax, enjoy, and sip the finest brews in town.</p>
+    <section id="about" class="about">
+        <h3>About Us</h3>
+        <p>Mor Caffe is a place where coffee meets art. Relax, enjoy, and sip the finest brews in town.</p>
     </section>
 
-    <section id="gallery" class="section animated-section">
-        <h3 data-en="Gallery" data-fa="گالری">Gallery</h3>
-        <p data-en="Check out our cozy ambiance and delicious treats."
-           data-fa="فضای دنج و خوراکی‌های خوشمزه ما را بررسی کنید.">
-           Check out our cozy ambiance and delicious treats.</p>
+    <section id="gallery" class="gallery">
+        <img src="https://source.unsplash.com/300x300/?coffee" alt="Gallery Image 1">
+        <img src="https://source.unsplash.com/300x300/?cafe" alt="Gallery Image 2">
+        <img src="https://source.unsplash.com/300x300/?coffee-shop" alt="Gallery Image 3">
     </section>
 
-    <section id="contact" class="section animated-section">
-        <h3 data-en="Contact Us" data-fa="تماس با ما">Contact Us</h3>
-        <p data-en="Location: Downtown City Center" data-fa="مکان: مرکز شهر">Location: Downtown City Center</p>
-        <p data-en="Email: info@morcaffe.com" data-fa="ایمیل: info@morcaffe.com">Email: info@morcaffe.com</p>
-        <p data-en="Phone: +123-456-7890" data-fa="تلفن: +123-456-7890">Phone: +123-456-7890</p>
+    <section id="contact" class="contact">
+        <h3>Contact Us</h3>
+        <p>Location: Downtown City Center</p>
+        <p>Email: info@morcaffe.com</p>
+        <p>Phone: +123-456-7890</p>
     </section>
 
     <footer>
-        <p data-en="&copy; 2024 Mor Caffe. All rights reserved." data-fa="&copy; 2024 Mor Caffe. تمامی حقوق محفوظ است.">&copy; 2024 Mor Caffe. All rights reserved.</p>
+        <p>&copy; 2024 Mor Caffe. All rights reserved.</p>
     </footer>
 
     <script>
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
-        }
-
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('.animated-section');
-            sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    section.classList.add('visible');
-                }
-            });
-        });
-
-        function setLanguage(lang) {
-            document.documentElement.lang = lang;
-            document.getElementById('language-selection').style.display = 'none';
-            const elements = document.querySelectorAll('[data-en]');
-            elements.forEach(el => {
-                el.textContent = el.getAttribute(`data-${lang}`);
-            });
+        function setLanguage(language) {
+            localStorage.setItem('language', language);
+            document.getElementById('language-modal').style.display = 'none';
         }
     </script>
 </body>
