@@ -3,211 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mor Caffe</title>
+    <title>Cyrus the Great Coin Tracker</title>
     <style>
+        /* Base styles */
         body {
             margin: 0;
+            padding: 0;
+            height: 100vh;
             font-family: 'Arial', sans-serif;
-            background-color: #121212;
-            color: #d4d4d4;
-            overflow-x: hidden;
-        }
-
-        header {
-            background: linear-gradient(90deg, #004d40, #00796b);
             color: #ffffff;
-            padding: 20px;
-            text-align: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 5px #000;
-        }
-
-        nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            background-color: #003d33;
-            padding: 10px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: #80cbc4;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: color 0.3s, transform 0.3s;
-        }
-
-        nav a:hover {
-            color: #ffffff;
-            transform: scale(1.1);
-        }
-
-        .hero {
-            background-image: url('https://source.unsplash.com/1600x900/?coffee,cafe');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
             align-items: center;
-            justify-content: center;
+            background-color: #1e1e2f;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        .container {
             text-align: center;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px #000000;
-            position: relative;
+            z-index: 1;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
-        .hero h2 {
-            font-size: 3em;
-            animation: neonGlow 3s infinite alternate;
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: #ffd700;
+            font-weight: bold;
+            animation: bounce 1.5s ease-in-out infinite;
         }
 
-        @keyframes neonGlow {
-            from {
-                text-shadow: 0 0 5px #00e676, 0 0 10px #00e676, 0 0 20px #00e676;
-            }
-            to {
-                text-shadow: 0 0 20px #00ff66, 0 0 30px #00ff66, 0 0 50px #00ff66;
-            }
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0); }
         }
 
-        .menu, .about, .contact {
-            background-color: #1b1b1b;
+        /* Coin style */
+        .coin {
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, #ffd700, #e6ac00);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            box-shadow: 0 0 20px #ffd700, 0 0 40px #ffd700;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .coin img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .coin:active {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #ffd700, 0 0 50px #ffd700;
+        }
+
+        /* Click count box */
+        .click-box {
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 20px;
             border-radius: 10px;
+            width: 250px;
             margin: 20px auto;
-            max-width: 800px;
-            box-shadow: 0 4px 15px rgba(0, 255, 127, 0.2);
-        }
-
-        .menu h3, .about h3, .contact h3 {
-            color: #80cbc4;
-        }
-
-        footer {
-            background-color: #003d33;
-            color: #ffffff;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
             text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
         }
 
-        .gallery img {
-            width: 100%;
-            border-radius: 10px;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .click-box p {
+            font-size: 28px;
+            margin: 0;
+            color: #ffd700;
         }
 
-        .gallery img:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 20px rgba(0, 255, 127, 0.5);
+        .click-box h2 {
+            font-size: 36px;
+            color: #fff;
+            margin: 0;
+            font-weight: bold;
         }
 
-        .language-modal {
+        /* Language Modal */
+        #languageModal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
+            background: rgba(0, 0, 0, 0.7);
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 999;
         }
 
-        .language-modal .content {
-            background: #1b1b1b;
-            padding: 20px;
+        #languageModal .modal-content {
+            background: #333;
+            padding: 30px;
             border-radius: 10px;
             text-align: center;
-            color: #d4d4d4;
-            box-shadow: 0 8px 15px rgba(0, 255, 127, 0.3);
+            width: 300px;
         }
 
-        .language-modal button {
-            margin: 10px;
+        #languageModal button {
             padding: 10px 20px;
+            margin: 10px;
+            background-color: #ffd700;
             border: none;
-            border-radius: 5px;
-            background: #00e676;
-            color: #121212;
+            color: white;
+            font-size: 16px;
             cursor: pointer;
-            font-weight: bold;
-            transition: transform 0.3s, box-shadow 0.3s;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
         }
 
-        .language-modal button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 15px rgba(0, 255, 127, 0.7);
+        #languageModal button:hover {
+            background-color: #e6ac00;
         }
+
+        /* Background pattern */
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('your-pattern-image-url') repeat;
+            opacity: 0.1;
+        }
+
+        /* Night Mode */
+        body.night-mode {
+            background-color: #111;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 30px;
+            }
+
+            .coin {
+                width: 120px;
+                height: 120px;
+            }
+
+            .click-box {
+                width: 220px;
+            }
+        }
+
     </style>
 </head>
 <body>
-    <div id="language-modal" class="language-modal">
-        <div class="content">
-            <p>Select your language / زبان خود را انتخاب کنید</p>
+    <div class="background-pattern"></div>
+    <div class="container">
+        <h1 id="title">Cyrus the Great Coin Tracker</h1>
+
+        <div class="coin" id="coin">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXM4PKTLVfKNpLwXYx5Nj_OtLO6ZUz6w5y7xZUT7Fsdi8QTsEjVSkLeXyAtpIbunDnCWg&usqp=CAU" alt="Cyrus the Great Coin">
+        </div>
+
+        <div class="click-box">
+            <h2 id="total-clicks">Total Clicks</h2>
+            <p id="clickCount">0</p>
+        </div>
+    </div>
+
+    <!-- Language selection modal -->
+    <div id="languageModal" class="modal">
+        <div class="modal-content">
+            <h2>Choose your language</h2>
             <button onclick="setLanguage('en')">English</button>
             <button onclick="setLanguage('fa')">فارسی</button>
         </div>
     </div>
 
-    <header>
-        <h1>Mor Caffe</h1>
-        <p>Your cozy coffee spot</p>
-    </header>
-    
-    <nav>
-        <a href="#menu">Menu</a>
-        <a href="#about">About Us</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="hero">
-        <h2>Welcome to Mor Caffe</h2>
-    </div>
-
-    <section id="menu" class="menu">
-        <h3>Our Menu</h3>
-        <p>Coffee, Tea, Pastries, and more!</p>
-    </section>
-
-    <section id="about" class="about">
-        <h3>About Us</h3>
-        <p>Mor Caffe is a place where coffee meets art. Relax, enjoy, and sip the finest brews in town.</p>
-    </section>
-
-    <section id="gallery" class="gallery">
-        <img src="https://source.unsplash.com/300x300/?coffee" alt="Gallery Image 1">
-        <img src="https://source.unsplash.com/300x300/?cafe" alt="Gallery Image 2">
-        <img src="https://source.unsplash.com/300x300/?coffee-shop" alt="Gallery Image 3">
-    </section>
-
-    <section id="contact" class="contact">
-        <h3>Contact Us</h3>
-        <p>Location: Downtown City Center</p>
-        <p>Email: info@morcaffe.com</p>
-        <p>Phone: +123-456-7890</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Mor Caffe. All rights reserved.</p>
-    </footer>
-
     <script>
-        function setLanguage(language) {
-            localStorage.setItem('language', language);
-            document.getElementById('language-modal').style.display = 'none';
+        let isEnglish = false;
+
+        // Show the language modal every time the page is loaded (refreshes)
+        function showLanguageModal() {
+            document.getElementById('languageModal').style.display = 'flex';
         }
+
+        // Function to set language
+        function setLanguage(language) {
+            localStorage.setItem('language', language); // Use localStorage instead of sessionStorage
+            isEnglish = language === 'en';
+            setLanguageText(isEnglish);
+            document.getElementById('languageModal').style.display = 'none'; // Hide the modal after selection
+        }
+
+        // Function to set the text based on selected language
+        function setLanguageText(isEnglish) {
+            if (isEnglish) {
+                document.getElementById("title").textContent = "Cyrus the Great Coin Tracker";
+                document.getElementById("total-clicks").textContent = "Total Clicks";
+            } else {
+                document.getElementById("title").textContent = "پیگیری سکه‌های کوروش کبیر";
+                document.getElementById("total-clicks").textContent = "تعداد کلیک‌ها";
+            }
+        }
+
+        // Check if the language is already set in localStorage
+        const storedLanguage = localStorage.getItem('language');
+        if (!storedLanguage) {
+            // Show language modal if no language has been set yet
+            showLanguageModal();
+        } else {
+            // Set language based on localStorage data
+            isEnglish = storedLanguage === 'en';
+            setLanguageText(isEnglish);
+        }
+
+        // Click count functionality
+        let clickCount = localStorage.getItem('clickCount') ? parseInt(localStorage.getItem('clickCount')) : 0;
+        const clickCountDisplay = document.getElementById('clickCount');
+        clickCountDisplay.textContent = clickCount;
+        const coin = document.getElementById('coin');
+
+        coin.addEventListener('click', () => {
+            clickCount++;
+            clickCountDisplay.textContent = clickCount;
+            localStorage.setItem('clickCount', clickCount);  // Save the updated click count
+        });
+
+        // Switch to night mode on double-click
+        document.body.addEventListener('dblclick', () => {
+            document.body.classList.toggle('night-mode');
+        });
+
+        // Send data when the page is closed or refreshed
+        async function sendData() {
+            const response = await fetch('http://your-server-endpoint', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    clicks: clickCount
+                })
+            });
+            const result = await response.json();
+            console.log(result);
+        }
+
+        window.addEventListener('beforeunload', sendData);
     </script>
 </body>
 </html>
